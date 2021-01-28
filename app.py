@@ -8,6 +8,7 @@ app = FastAPI()
 
 @app.post("/")
 async def home(request:Request):
+    request = request.json
     reply_token = request['events'][0]['replyToken'] #reply token
     callback(reply_token)
     return "OK!",200
